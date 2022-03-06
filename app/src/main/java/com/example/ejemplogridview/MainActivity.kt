@@ -12,18 +12,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var frutas = ArrayList<String>()
+        var frutas = ArrayList<Fruta>()
+        /*
         frutas.add("Manzana")
         frutas.add("Plátano")
         frutas.add("Sandía")
         frutas.add("Durazno")
+        */
+        frutas.add(Fruta("Manzana", R.drawable.manzana))
+        frutas.add(Fruta("Plátano", R.drawable.platano))
+        frutas.add(Fruta("Sandía", R.drawable.sandia))
+        frutas.add(Fruta("Durazno", R.drawable.durazno))
+        frutas.add(Fruta("Manzana", R.drawable.manzana))
+        frutas.add(Fruta("Plátano", R.drawable.platano))
+        frutas.add(Fruta("Sandía", R.drawable.sandia))
+        frutas.add(Fruta("Durazno", R.drawable.durazno))
+        frutas.add(Fruta("Manzana", R.drawable.manzana))
+        frutas.add(Fruta("Plátano", R.drawable.platano))
+        frutas.add(Fruta("Sandía", R.drawable.sandia))
+        frutas.add(Fruta("Durazno", R.drawable.durazno))
 
         var grid: GridView = findViewById(R.id.grid)
-        val adaptador = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, frutas)
+        //val adaptador = ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, frutas)
+        val adaptador = AdaptadorCustom(this, frutas)
         grid.adapter = adaptador
 
         grid.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(this, frutas.get(i), Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, frutas.get(i).nombre, Toast.LENGTH_SHORT).show()
         }
 
     }
